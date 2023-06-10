@@ -12,26 +12,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class EnterpriseService {
 
-    private final EnterpriseRepository EnterpriseRepository;
+    private final EnterpriseRepository enterpriseRepository;
 
     @Autowired
-    public EnterpriseService(EnterpriseRepository EnterpriseRepository){
-        this.EnterpriseRepository = EnterpriseRepository;
+    public EnterpriseService(EnterpriseRepository enterpriseRepository){
+        this.enterpriseRepository = enterpriseRepository;
     }
 
     public List<EnterpriseEntity>getEnterprises(){
-        return this.EnterpriseRepository.findAll();
+        return this.enterpriseRepository.findAll();
     }
     public ResponseEntity<Object> addNewEnterprise(EnterpriseEntity enterprise){
-        Optional<EnterpriseEntity> res = EnterpriseRepository.findEnterpriseByEmail(enterprise.getEnterpriseEmail());
+        Optional<EnterpriseEntity> res = enterpriseRepository.findEnterpriseByEmail(enterprise.getEmail());
         HashMap<String, Object> datos = new HashMap<>();
 
         if(res.isPresent()){
             datos.put("error", true);
-            datos.put("message", "Ya existe persona con ese email");
+            datos.put("message", "Ya existe empresa con ese email");
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
-        EnterpriseRepository.save(enterprise);
+        enterpriseRepository.save(enterprise);
         datos.put("datos", enterprise);
         datos.put("message", "Se registró con exito");
         return new ResponseEntity<>(datos, HttpStatus.CREATED);

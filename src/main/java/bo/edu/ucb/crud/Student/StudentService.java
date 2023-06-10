@@ -20,7 +20,8 @@ public class StudentService {
     }
 
     public List<StudentEntity>getStudents(){
-		return this.studentRepository.findAll();
+
+        return this.studentRepository.findAll();
 	}
     
     public ResponseEntity<Object> addNewStudents(StudentEntity student){

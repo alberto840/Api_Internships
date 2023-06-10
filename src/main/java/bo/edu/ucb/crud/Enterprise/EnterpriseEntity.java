@@ -17,7 +17,7 @@ public class EnterpriseEntity {
     private String documentID;  
     private String enterpriseName;
     @Column(unique = true)
-    private String enterpriseEmail;
+    private String email;
     private String username;
     private String password;
     
@@ -32,7 +32,7 @@ public class EnterpriseEntity {
             this.enterpriseId=enterpriseId;
             this.documentID=documentID;
             this.enterpriseName=enterpriseName;
-            this.enterpriseEmail=enterpriseEmail;
+            this.email=enterpriseEmail;
             this.username=username;
             this.username=password;
     }
@@ -66,13 +66,7 @@ public class EnterpriseEntity {
         this.enterpriseName = enterpriseName;
     }
 
-    public String getEnterpriseEmail() {
-        return enterpriseEmail;
-    }
 
-    public void setEnterpriseEmail(String enterpriseEmail) {
-        this.enterpriseEmail = enterpriseEmail;
-    }
 
     public String getUsername() {
         return username;
@@ -88,5 +82,12 @@ public class EnterpriseEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

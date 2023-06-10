@@ -11,24 +11,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "api/v1/enterprise")
+@RequestMapping(path = "api/v1/enterprises")
 public class EnterpriseController {
 
-    private final EnterpriseService EnterpriseService;
+    private final EnterpriseService enterpriseService;
 
     @Autowired
     public EnterpriseController(EnterpriseService enterpriseService) {
-        this.EnterpriseService = enterpriseService;
+        this.enterpriseService = enterpriseService;
     }
 
     @GetMapping
     public List<EnterpriseEntity> getEnterprises(){
-        return EnterpriseService.getEnterprises();
+        return enterpriseService.getEnterprises();
     }
 
     @PostMapping
     public ResponseEntity<Object> registerNewEnterprise(@RequestBody EnterpriseEntity enterprise){
-        return this.EnterpriseService.addNewEnterprise(enterprise);
+        return this.enterpriseService.addNewEnterprise(enterprise);
     }
 
 }
