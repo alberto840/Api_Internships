@@ -14,7 +14,7 @@ public class EnterpriseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer enterpriseId;
-    private String documentID;  
+    private String documentId;  
     private String enterpriseName;
     @Column(unique = true)
     private String email;
@@ -26,11 +26,11 @@ public class EnterpriseEntity {
     public EnterpriseEntity() {
     }
     public EnterpriseEntity(Integer enterpriseId,
-        String documentID, String enterpriseName,
+        String documentId, String enterpriseName,
         String enterpriseEmail, String username, String password){
 
             this.enterpriseId=enterpriseId;
-            this.documentID=documentID;
+            this.documentId=documentId;
             this.enterpriseName=enterpriseName;
             this.email=enterpriseEmail;
             this.username=username;
@@ -50,12 +50,12 @@ public class EnterpriseEntity {
         this.enterpriseId = enterpriseId;
     }
 
-    public String getDocumentID() {
-        return documentID;
+    public String getDocumentId() {
+        return documentId;
     }
 
-    public void setDocumentID(String documentID) {
-        this.documentID = documentID;
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
     }
 
     public String getEnterpriseName() {
